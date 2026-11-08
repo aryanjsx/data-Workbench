@@ -14,9 +14,12 @@ function requireEnvVar(name: string, value: string | undefined): string {
   return value;
 }
 
+const apiBaseUrl =
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
+  (process.env.NODE_ENV === "production"
+    ? "https://backend-eta-rust-52.vercel.app/api/v1"
+    : undefined);
+
 export const env = {
-  apiBaseUrl: requireEnvVar(
-    "NEXT_PUBLIC_API_BASE_URL",
-    process.env.NEXT_PUBLIC_API_BASE_URL
-  ),
+  apiBaseUrl: requireEnvVar("NEXT_PUBLIC_API_BASE_URL", apiBaseUrl),
 } as const;

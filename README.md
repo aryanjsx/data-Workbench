@@ -52,6 +52,11 @@ Other supported vars (defaults work for local dev): `DWB_ENVIRONMENT`, `DWB_CORS
 NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8010/api/v1
 ```
 
+The production frontend defaults to the deployed API at
+`https://backend-eta-rust-52.vercel.app/api/v1`. Set
+`NEXT_PUBLIC_API_BASE_URL` in the frontend host to override it, then redeploy.
+The backend must allow the frontend's deployed origin in `DWB_CORS_ORIGINS`.
+
 ## Running the Application
 
 **Backend** (port `8010`):
